@@ -4,7 +4,7 @@ import javax.inject.{Inject, Singleton}
 
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
-import org.neal.schneier.model.{TemplateMessage, RequestTemplate, CreateTemplate, Template}
+import org.neal.schneier.model.{TemplateMessage, RequestTemplate, Template}
 import org.neal.schneier.service.TemplateService
 
 /**
