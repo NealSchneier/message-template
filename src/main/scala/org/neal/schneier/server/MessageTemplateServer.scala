@@ -7,7 +7,7 @@ import org.neal.schneier.controller.TemplateController
 /**
   * Created by neal.schneier on 2/11/17.
   */
-object MessageTemplateServer extends MessageTemplateServer
+object MessageTemplateServerMain extends MessageTemplateServer
 
 class MessageTemplateServer extends HttpServer{
 
