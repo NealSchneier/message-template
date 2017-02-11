@@ -4,7 +4,7 @@ import javax.inject.{Inject, Singleton}
 
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
-import org.neal.schneier.model.{CreateTemplate, Template}
+import org.neal.schneier.model.{RequestTemplate, CreateTemplate, Template}
 import org.neal.schneier.service.TemplateService
 
 /**
@@ -38,17 +38,17 @@ class TemplateController @Inject()(templateService: TemplateService) extends Con
   /**
     * This is used to create a template. Return is the full template, including Id.
     */
-  post("/template") {request: CreateTemplate =>
+  post("/template") {request: Template =>
     val id = templates.size + 1
-    response.ok(templates.+=((id, Template(id, request.message))))
+    response.ok(templates.+=((id, Template(request.message))))
   }
 
   /**
     * This is to update an already existing template. The full template is updated. Only thing that remains the same
     * is the id.
     */
-  put("/template/:id") {request: Template =>
-    response.ok(templates.+=((request.id, request)))
+  put("/template/:id") {request: RequestTemplate =>
+    response.ok(templates.+=((request.id, Template(request.message))))
   }
 
   /**

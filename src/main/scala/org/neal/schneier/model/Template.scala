@@ -7,6 +7,6 @@ import com.twitter.finatra.request.RouteParam
   * When stored the message will contain the message.
   * Should templates have names?
   */
-case class Template(@RouteParam id: Int, message: String)
+case class RequestTemplate(@RouteParam id: Int, message: String)
 
-case class CreateTemplate(message: String)
+case class Template(message: String)
