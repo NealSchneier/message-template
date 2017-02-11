@@ -61,7 +61,7 @@ object Settings {
 
   lazy val finatraDeps = Seq(
     orgs.twitter %% "finagle-http" % versions.finagle,
-    (orgs.twitter + "finatra") %% "finagle-http" % "2.1.5"
+    (orgs.twitter + ".finatra") %% "finatra-http" % "2.1.5"
   )
 
   private lazy val exclusions = new {

@@ -18,3 +18,5 @@ parallelExecution in Test := false
 scalaVersion := "2.11.8"
 
 libraryDependencies ++= Settings.configDeps ++ Settings.finatraDeps ++ Settings.loggingDeps ++ Settings.unitTestDeps
+
+mainClass in (Compile, run) := Some("org.neal.schneier.server.MessageTemplateServer")
