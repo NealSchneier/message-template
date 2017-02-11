@@ -5,12 +5,13 @@ import javax.inject.{Inject, Singleton}
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
 import org.neal.schneier.model.Template
+import org.neal.schneier.service.TemplateService
 
 /**
   * Created by neal.schneier on 2/11/17.
   */
 @Singleton
-class TemplateController @Inject()() extends Controller{
+class TemplateController @Inject()(templateService: TemplateService) extends Controller{
 
   val templates = scala.collection.mutable.Map[Int, Template]().empty
 
@@ -37,7 +38,7 @@ class TemplateController @Inject()() extends Controller{
   /**
     * This is used to create a template. Return is the full template, including Id.
     */
-  post("/template") {request: Request =>
+  post("/template") {request: Template =>
     response.ok()
   }
 
@@ -46,7 +47,7 @@ class TemplateController @Inject()() extends Controller{
     * is the id.
     */
   put("/template/:id") {request: Template =>
-    response.ok(templates.+=((request.id, request)))
+    response.ok(templates.+=((templates.size + 1, request)))
   }
 
   /**
