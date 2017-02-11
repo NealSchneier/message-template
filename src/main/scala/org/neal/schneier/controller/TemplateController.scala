@@ -4,7 +4,7 @@ import javax.inject.{Inject, Singleton}
 
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
-import org.neal.schneier.model.{RequestTemplate, CreateTemplate, Template}
+import org.neal.schneier.model.{TemplateMessage, RequestTemplate, CreateTemplate, Template}
 import org.neal.schneier.service.TemplateService
 
 /**
@@ -61,7 +61,18 @@ class TemplateController @Inject()(templateService: TemplateService) extends Con
   /**
     * Post to receive a templated message. The Post body contains the actual template placeholder values
     */
-  post("/message/:id") { request: Request =>
-    response.ok(templates.getOrElse(request.getIntParam("id"), None))
+  post("/message/:id") { request: TemplateMessage =>
+    response.ok(templates.getOrElse(request.id, None))
+  }
+
+  /**
+    * This function takes in the message stored and the replacements included in the request and makes
+    * the necessary substitutions to generate the legal message required.
+    * @param message
+    * @param replacements
+    * @return
+    */
+  def replacePlaceholders(message: String, replacements: Map[String, String]): String = {
+    ""
   }
 }
