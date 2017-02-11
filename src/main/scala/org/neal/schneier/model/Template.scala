@@ -8,3 +8,5 @@ import com.twitter.finatra.request.RouteParam
   * Should templates have names?
   */
 case class Template(@RouteParam id: Int, message: String)
+
+case class CreateTemplate(message: String)
