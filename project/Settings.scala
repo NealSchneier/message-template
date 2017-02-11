@@ -14,7 +14,7 @@ object Settings {
     val jacksonAnnotations = "2.5.0"
     val typesafeConfig = "1.2.1"
     val ficus = "1.1.1"
-    val finagle = "6.31.0"
+    val finagle = "6.34.0"
   }
 
   private lazy val orgs = new {
@@ -60,7 +60,6 @@ object Settings {
   )
 
   lazy val finatraDeps = Seq(
-    orgs.twitter %% "finagle-http" % versions.finagle,
     (orgs.twitter + ".finatra") %% "finatra-http" % "2.1.5"
   )
 
