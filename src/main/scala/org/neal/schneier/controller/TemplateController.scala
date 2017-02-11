@@ -62,6 +62,6 @@ class TemplateController @Inject()(templateService: TemplateService) extends Con
     * Post to receive a templated message. The Post body contains the actual template placeholder values
     */
   post("/message/:id") { request: Request =>
-    response.ok(templates.getOrElse(request.getIntParam("id"), None[Template]))
+    response.ok(templates.getOrElse(request.getIntParam("id"), None))
   }
 }
