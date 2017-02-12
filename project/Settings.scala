@@ -71,7 +71,9 @@ object Settings {
     orgs.twitterInject %% "inject-modules" % versions.finatra % "test" classifier "tests",
     orgs.twitterInject %% "inject-server" % versions.finatra % "test" classifier "tests",
     orgs.finatra %% "finatra-thrift" % versions.finatra % "test" classifier "tests",
-    orgs.finatra %% "finatra-http" % versions.finatra % "test" classifier "tests"
+    "junit" % "junit" % "4.10" % "test",
+    orgs.finatra %% "finatra-http" % versions.finatra % "test" classifier "tests",
+    "com.google.inject.extensions" % "guice-testlib" % "4.0" % "test"
   )
 
   lazy val finatraDeps = Seq(
