@@ -15,6 +15,7 @@ object Settings {
     val typesafeConfig = "1.2.1"
     val ficus = "1.1.1"
     val finagle = "6.34.0"
+    val finatra = "2.1.5"
   }
 
   private lazy val orgs = new {
@@ -29,6 +30,8 @@ object Settings {
     val jline = "jline"
     val fasterxmlJackson = "com.fasterxml.jackson.core"
     val twitter = "com.twitter"
+    val finatra = s"$twitter.finatra"
+    val twitterInject = s"$twitter.inject"
   }
 
   private lazy val scope = new {
@@ -56,7 +59,19 @@ object Settings {
   lazy val unitTestDeps = Seq (
     "org.specs2" %% "specs2-core" % versions.specs2 % "test",
     "org.specs2" %% "specs2-mock" % versions.specs2 % "test",
-    "org.scalatest" %% "scalatest" % versions.scalaTest % "test"
+    "org.scalatest" %% "scalatest" % versions.scalaTest % "test",
+    // Testing
+    "org.scalatest" %% "scalatest" % versions.scalaTest % "test",
+    orgs.twitterInject %% "inject-server" % versions.finatra % "test",
+    orgs.twitterInject %% "inject-app" % versions.finatra % "test",
+    orgs.twitterInject %% "inject-core" % versions.finatra % "test",
+    orgs.twitterInject %% "inject-modules" % versions.finatra % "test",
+    orgs.twitterInject %% "inject-app" % versions.finatra % "test" classifier "tests",
+    orgs.twitterInject %% "inject-core" % versions.finatra % "test" classifier "tests",
+    orgs.twitterInject %% "inject-modules" % versions.finatra % "test" classifier "tests",
+    orgs.twitterInject %% "inject-server" % versions.finatra % "test" classifier "tests",
+    orgs.finatra %% "finatra-thrift" % versions.finatra % "test" classifier "tests",
+    orgs.finatra %% "finatra-http" % versions.finatra % "test" classifier "tests"
   )
 
   lazy val finatraDeps = Seq(
