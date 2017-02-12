@@ -13,6 +13,8 @@ Legal Document Template Based Message Workflow
     
 4 - This service is used by internal customers only.
 
+5 - In the real worl this would be backed by a database instead of storing just in memory. The database would depend on the non functional requirements and expected usage of the service.
+
 ### Requirements
 
 *Java 8
@@ -23,4 +25,10 @@ Legal Document Template Based Message Workflow
 
 ### To Run
 
-sbt run
+Launch the Server
+
+*sbt run
+
+To run Tests
+
+*sbt test
