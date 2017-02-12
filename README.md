@@ -11,6 +11,7 @@ Legal Document Template Based Message Workflow
     
     - The possible values are: URLs, emails, phone numbers, or names.
     
+4 - This service is used by internal customers only.
 
 ### Requirements
 
